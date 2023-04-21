@@ -6,8 +6,8 @@ która umożliwi artystom promowoanie oraz sprzedawanie swoich dzieł sztuki.
 Z powodu choroby jednego członka zespołu wraz z zakończeniem sprintu II 
 projekt będzie kontynuowany z grupie 3 osobowej.
 
-Terminy Sprint'ów
-Sprint I - Zakończony
+Terminy Sprint'ów: <br />
+Sprint I - Zakończony <br />
   13 marca – 27 marca
 Sprint II - Zakończony
   27 marca – 17 kwietnia
