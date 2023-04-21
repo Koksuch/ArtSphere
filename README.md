@@ -8,12 +8,12 @@ projekt będzie kontynuowany z grupie 3 osobowej.
 
 Terminy Sprint'ów: <br />
 Sprint I - Zakończony <br />
-  13 marca – 27 marca
-Sprint II - Zakończony
-  27 marca – 17 kwietnia
-Sprint III - Trwa
-  17 kwietnia – 8 maja
-Sprint IV
-  8 maja – 22 maja
-Sprint V
-  22 maja – 5 czerwca
+  13 marca – 27 marca <br />
+Sprint II - Zakończony <br />
+  27 marca – 17 kwietnia <br />
+Sprint III - Trwa <br />
+  17 kwietnia – 8 maja <br />
+Sprint IV <br />
+  8 maja – 22 maja <br />
+Sprint V <br />
+  22 maja – 5 czerwca <br />
