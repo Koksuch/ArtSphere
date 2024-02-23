@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import { AuthContextProvider } from "./context/AuthContext";
 import LoginView from "./components/Auth/LoginView/LoginView";
 import RegisterView from "./components/Auth/RegisterView/RegisterView";
 import Menu from "./components/Header/Menu/Menu";
@@ -19,16 +20,26 @@ import UserArts from "./pages/User/UserArts/UserArts";
 import AdminPanel from "./pages/User/AdminPanel/AdminPanel";
 import ProtectedRoute from "./hoc/ProtectedRoute";
 import PasswordRecovery from "./components/Auth/PasswordRecovery/PasswordRecovery";
-import { AuthContextProvider } from "./context/AuthContext";
+import ArtistsDetails from "./pages/Artists/ArtistsDetails/ArtistsDetails";
+import OfferDetails from "./pages/Gallery/OfferDetails/OfferDetails";
+import EditArt from "./components/EditArt/EditArt";
+import Carts from "./pages/Carts/Carts";
+import Payment from "./pages/Carts/Payment/Payment";
+import OrderDetails from "./pages/User/ShoppingHistory/OrderDetails.js/OrderDetails";
+import { ToastContainer, Zoom } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const content = (
     <>
       <Menu />
+      <ToastContainer position="bottom-right" theme="dark" transition={Zoom} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/galeria" element={<Gallery />} />
+        <Route path="/galeria/:offerId" element={<OfferDetails />} />
         <Route path="/artysci" element={<Artists />} />
+        <Route path="/artysci/:artistId" element={<ArtistsDetails />} />
         <Route
           path="/logowanie"
           element={
@@ -54,6 +65,22 @@ function App() {
           }
         />
         <Route
+          path="/koszyk"
+          element={
+            <ProtectedRoute accesBy="authenticated" role="klient">
+              <Carts />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/koszyk/platnosc"
+          element={
+            <ProtectedRoute accesBy="authenticated" role="klient">
+              <Payment />
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/profil"
           element={
             <ProtectedRoute accesBy="authenticated" role="klient">
@@ -63,8 +90,9 @@ function App() {
         >
           <Route index element={<Profile />} />
           <Route path="mojeZakupy" element={<ShoppingHistory />} />
+          <Route path="mojeZakupy/:orderId" element={<OrderDetails />} />
           <Route path="ulubione" element={<Favorite />} />
-          <Route path="doladujPortfel" element={<TopUpWallet />} />
+          <Route path="Portfel" element={<TopUpWallet />} />
           <Route path="adresDostawy" element={<DeliveryAddress />} />
           <Route path="daneDoFaktury" element={<InvoiceData />} />
           <Route path="ustawieniaKonta" element={<AccountSettings />} />
@@ -73,6 +101,14 @@ function App() {
             element={
               <ProtectedRoute accesBy="authenticated" role="artysta">
                 <UserArts />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="twojeDziela/edycja/:artId"
+            element={
+              <ProtectedRoute accesBy="authenticated" role="artysta">
+                <EditArt />
               </ProtectedRoute>
             }
           />

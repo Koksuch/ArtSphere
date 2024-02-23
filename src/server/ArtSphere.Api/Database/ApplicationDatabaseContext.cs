@@ -11,6 +11,16 @@ public class ApplicationDatabaseContext : IdentityDbContext<ApplicationUser, App
 {
     public ApplicationDatabaseContext(DbContextOptions<ApplicationDatabaseContext> options) : base(options) { }
     public DbSet<User> ASUsers { get; set; }
+    public DbSet<Offer> Offers { get; set; }
+    public DbSet<Tag> Tags { get; set; }
+    public DbSet<TagDictionary> TagDictionary { get; set; }
+    public DbSet<Wallet> Wallets { get; set; }
+    public DbSet<ShoppingCartElement> ShoppingCart { get; set; }
+    public DbSet<DepositToken> DepositTokens { get; set; }
+    public DbSet<Order> Orders { get; set; }
+    public DbSet<OrderElement> OrderELements { get; set; }
+    public DbSet<Favorite> Favorites { get; set; }
+    public DbSet<Bid> Bids { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

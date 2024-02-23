@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ArtSphere.Api.Models.Dto.Responses;
 using ArtSphere.Api.Models.Dto.Payloads;
+using System.Text.RegularExpressions;
 
 namespace ArtSphere.Api.Controllers;
 
@@ -37,7 +38,8 @@ public class ProfileController : ControllerBase
             return Ok(new ProfileInfoResponse(
                 account.FirstName?? string.Empty, 
                 account.LastName?? string.Empty, 
-                account.Description?? string.Empty));
+                account.Description?? string.Empty,
+                account.ProfilePicture ?? string.Empty));
         }
 
         throw new Exception("Do użytkownika nie został przypisany żaden profil.");
@@ -68,7 +70,8 @@ public class ProfileController : ControllerBase
         ApplicationUser? user = await _userManager.FindByNameAsync(User.Identity.Name);
 
         if (user == null) throw new InvalidOperationException("Nie odnaleziono użytkownika.");
-        
+    
+
         if(user?.AccountId != null)
         {
             var account = await _usersRepository.GetUserAsync(user.AccountId);
@@ -98,6 +101,16 @@ public class ProfileController : ControllerBase
         
         if(user?.AccountId != null)
         {
+            payload.PhoneNumber = payload.PhoneNumber.Replace(" ", ""); 
+            if(payload.PhoneNumber.StartsWith("+") == false) payload.PhoneNumber = $"+48{payload.PhoneNumber}";
+
+            Regex phoneNumberRegex = new Regex(@"^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$");
+
+            if(phoneNumberRegex.IsMatch(payload.PhoneNumber ?? string.Empty) == false)
+            {
+                return BadRequest(new { success = false, message = "Podano błędny format numeru telefonu."});
+            }
+
             var account = await _usersRepository.UpdateUserAddressAsync(user.AccountId, payload);
 
             return Ok("Zaktualizowno adres profilu.");
