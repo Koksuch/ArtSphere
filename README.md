@@ -10,3 +10,6 @@ Z powodu choroby jednego członka zespołu wraz z zakończeniem sprintu II
 projekt był kontynuowany z grupie 3 osobowej.
 
 W samym projekcie odpowiedzialny byłem za stworzenie większości Frontendu.
+
+Repozytorium zawiera także plik z przygotowaną na potrzeby projektu
+dokumentacją użytkownika zawierającą wygląd oraz opis działania aplikacji.
