@@ -1,15 +1,15 @@
 # ArtSphere
 
-Link do orginalnego repozytorium: https://github.com/wjakub072/ArtSphere
+Link to the original repository: https://github.com/wjakub072/ArtSphere
 
-Projekt jest tworzony w 4 osobowym zespole w ramach zajęć zepołowych
-Celem projektu ArtSphere jest stworzenie platformy galeria sztuki,
-która umożliwi artystom promowoanie oraz sprzedawanie swoich dzieł sztuki.
+The project was created in a team of 4 people in a team activity
+The aim of the ArtSphere project is to create an art gallery platform,
+which will enable artists to promote and sell their artworks.
 
-Z powodu choroby jednego członka zespołu wraz z zakończeniem sprintu II 
-projekt był kontynuowany z grupie 3 osobowej.
+Due to the illness of one team member with the end of Sprint II 
+the project continued with a group of 3.
 
-W samym projekcie odpowiedzialny byłem za stworzenie większości Frontendu.
+In the project, I was responsible for creating most of Frontend.
 
-Repozytorium zawiera także plik z przygotowaną na potrzeby projektu
-dokumentacją użytkownika zawierającą wygląd oraz opis działania aplikacji.
+The repository also contains a file with [user documentation]() prepared for the project.
+User documentation includes the appearance and description of the application's functionality.
